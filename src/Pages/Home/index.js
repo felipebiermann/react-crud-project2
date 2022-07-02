@@ -79,7 +79,7 @@ export function Home() {
       {crudComunnity.map((currentCrud) => {
         return (
           <Cards
-            style={{ margin: "0 auto" }}
+            style={{ marginLeft: "500px" }}
             user={currentCrud.user}
             id={currentCrud._id}
           />
