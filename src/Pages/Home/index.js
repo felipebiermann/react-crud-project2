@@ -1,9 +1,22 @@
 import { Link } from "react-router-dom";
-// import { Cards } from "../../components/Cards";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
+import { Cards } from "../../components/Cards";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export function Home() {
+  const [crudComunnity, setCrudComunnity] = useState([]);
+  console.log(crudComunnity);
+
+  useEffect(() => {
+    async function fetchCrud() {
+      const response = await axios.get(
+        "https://ironrest.herokuapp.com/react-crud-project2"
+      );
+      setCrudComunnity([...response.data]);
+    }
+    fetchCrud();
+  }, []);
+
   return (
     <>
       <nav
@@ -63,6 +76,15 @@ export function Home() {
           TESTANDO
         </h1>
       </div>
+      {crudComunnity.map((currentCrud) => {
+        return (
+          <Cards
+            style={{ margin: "0 auto" }}
+            user={currentCrud.user}
+            id={currentCrud._id}
+          />
+        );
+      })}
     </>
   );
 }
