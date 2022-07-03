@@ -30,7 +30,7 @@ export function Cards(props) {
             }}
           >{`Acesso: ${props.user}`}</h5>
 
-          <Link to={`/login/${props._id}`} className="btn btn-primary">
+          <Link to={`/profile/${props.id}`} className="btn btn-primary">
             Acessar Perfil!
           </Link>
         </div>
