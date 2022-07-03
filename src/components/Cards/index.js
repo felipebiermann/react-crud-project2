@@ -5,7 +5,7 @@ export function Cards(props) {
     <div className="row">
       <div className="col-sm-6">
         <div
-          className="card"
+          className="card text-white bg-success mb-3"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -28,9 +28,9 @@ export function Cards(props) {
               color: "",
               marginLeft: "50%",
             }}
-          >{`Acesso: ${props.user}`}</h5>
+          >{`Acesso: ${props.userName}`}</h5>
 
-          <Link to={`/profile/${props.id}`} className="btn btn-primary">
+          <Link to={`/profile/${props.id}`} className="btn btn-outline-dark">
             Acessar Perfil!
           </Link>
         </div>

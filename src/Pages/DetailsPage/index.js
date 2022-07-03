@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { NavBar } from "../../components/NavBar";
 
 export function DetailsPage() {
   const { _id } = useParams();
@@ -37,9 +38,11 @@ export function DetailsPage() {
 
   return (
     <>
-      <h1>Perfil {loginPage.user}</h1>
+      <NavBar />
+      <h1>Seja bem vindo, {loginPage.userName}!</h1>
+      <h4>Suas informações:</h4>
       <ul>
-        <li>Login: {loginPage.user}</li>
+        <li>Login: {loginPage.login}</li>
         <li>Password: {loginPage.password}</li>
       </ul>
       {

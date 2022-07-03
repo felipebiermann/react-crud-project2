@@ -31,9 +31,9 @@ export function Home() {
           className="nav-bar-ul"
           style={{
             width: "1200px",
-            margin: "0 auto",
-            marginLeft: "90%",
-
+            marginRight: "160px",
+            marginLeft: "500px",
+            marginTop: "10px",
             fontSize: "10px",
           }}
         >
@@ -48,11 +48,13 @@ export function Home() {
           >
             <Link
               to="/login-page"
-              className="nav-bar-item"
+              className="btn btn-outline-success my-2 my-sm-0"
               style={{
                 color: "white",
+
                 fontSize: "2em",
                 textDecoration: "none",
+                borderStyle: "solid",
               }}
             >
               Login
@@ -69,6 +71,8 @@ export function Home() {
             margin: "0px",
             fontFamily: "Blippo, fantasy",
             letterSpacing: "2px",
+            marginRight: "10px",
+            marginLeft: "560px",
             color: "white",
             textAlign: "center",
           }}
@@ -80,7 +84,7 @@ export function Home() {
         return (
           <Cards
             style={{ marginLeft: "500px" }}
-            user={currentCrud.user}
+            userName={currentCrud.userName}
             id={currentCrud._id}
           />
         );

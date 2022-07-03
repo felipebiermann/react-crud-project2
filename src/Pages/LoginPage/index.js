@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { NavBar } from "../../components/NavBar";
 // import { Toaster, toast } from "react-hot-toast";
 
 export function LoginPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    user: "",
+    userName: "",
+    login: "",
     password: "",
   });
   console.log(form);
@@ -34,15 +36,24 @@ export function LoginPage() {
 
   return (
     <>
-      <div>
+      <NavBar />
+      <div className="form-row align-items-center">
         <form onSubmit={handleSubmit}>
+          <label htmlFor="Nome-input">Seu Nome:</label>
+          <input
+            type="string"
+            name="userName"
+            onChange={handleChange}
+            value={form.userName}
+            id="Nome-input"
+          />
           <label htmlFor="user-input">Login:</label>
           <input
             type="string"
-            name="user"
+            name="login"
             onChange={handleChange}
-            value={form.user}
-            id="user-input"
+            value={form.login}
+            id="login-input"
           />
           <br />
           <label htmlFor="password-input">Senha:</label>
@@ -60,7 +71,7 @@ export function LoginPage() {
             type="submit"
             style={{ margin: "10px" }}
           >
-            Entrar
+            Criar/Entrar
           </button>
         </form>
       </div>
