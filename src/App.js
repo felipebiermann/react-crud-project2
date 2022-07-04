@@ -4,6 +4,7 @@ import { LoginPage } from "./Pages/LoginPage";
 import { DetailsPage } from "./Pages/DetailsPage";
 import { EditProfile } from "./Pages/EditProfile";
 import { NotFound } from "./Pages/NotFound";
+import { ApiPage } from "./Pages/ApiPage";
 // import { ApiPage } from "./Pages/ApiPage";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login-page" element={<LoginPage />} />
         <Route path="/profile/:_id" element={<DetailsPage />} />
         <Route path="/edit-profile/:_id" element={<EditProfile />} />
+        <Route path="/api-page" element={<ApiPage />} />
         <Route path="*" element={<NotFound />} />
 
         {/* <Route path="/api-page" element={<ApiPage />} /> */}
