@@ -6,6 +6,7 @@ import { NavBar } from "../../components/NavBar";
 
 export function ApiPage() {
   const [apiPage, setApiPage] = useState([]);
+  const [search, setSearch] = useState("");
   console.log(apiPage);
 
   useEffect(() => {

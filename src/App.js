@@ -6,6 +6,7 @@ import { EditProfile } from "./Pages/EditProfile";
 import { NotFound } from "./Pages/NotFound";
 import { ApiPage } from "./Pages/ApiPage";
 import { AuthPage } from "./Pages/AuthPage";
+import "./assets/app.css";
 // import { ApiPage } from "./Pages/ApiPage";
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Route path="/login-page" element={<LoginPage />} />
         <Route path="/profile/:_id" element={<DetailsPage />} />
         <Route path="/edit-profile/:_id" element={<EditProfile />} />
-        <Route path="/api-page" element={<ApiPage />} />
-        <Route path="/auth-page" element={<AuthPage />} />
+        <Route path="/api-page/:_id" element={<ApiPage />} />
+        <Route path="/auth-page/:_id" element={<AuthPage />} />
         <Route path="*" element={<NotFound />} />
 
         {/* <Route path="/api-page" element={<ApiPage />} /> */}

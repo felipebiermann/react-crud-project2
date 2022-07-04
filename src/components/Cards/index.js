@@ -1,40 +1,19 @@
 import { Link } from "react-router-dom";
+import gamesJoystick from "../../assets/games.png";
 
 export function Cards(props) {
   console.log(props);
   return (
-    <div className="row">
-      <div className="col-sm-6">
-        <div
-          className="card text-white bg-success mb-3"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            fontSize: "20px",
-
-            color: "",
-            marginRight: "-15%",
-            marginLeft: "80%",
-            marginBottom: "10%",
-            marginTop: "10%",
-          }}
-        >
-          <h5
-            className="card-title"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontSize: "20px",
-              marginRight: "60%",
-              color: "",
-              marginLeft: "50%",
-            }}
-          >{`Acesso: ${props.userName}`}</h5>
-
-          <Link to={`/profile/${props.id}`} className="btn btn-outline-dark">
-            Acessar Perfil!
-          </Link>
-        </div>
+    <div
+      className="card mx-4 mt-4 d-flex text-center justify-content-around"
+      style={{ width: "18rem" }}
+    >
+      <div className="card border-light mb-3  ">
+        <h5 className="card-title text-center">{`Acesso: ${props.userName}`}</h5>
+        <img class="card-img-top" src={gamesJoystick} alt="Card image cap" />
+        <Link to={`/auth-page/${props.id}`} className="btn btn-dark mt-5">
+          Acessar Perfil!
+        </Link>
       </div>
     </div>
   );

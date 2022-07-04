@@ -19,7 +19,7 @@ export function GameCards(props) {
 
           <Link
             to={`/profile/${props.id}`}
-            className="btn btn-success"
+            className="btn btn-dark"
             style={{ textAlign: "center" }}
           >
             Adicionar Jogo!

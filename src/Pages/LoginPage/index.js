@@ -10,6 +10,7 @@ export function LoginPage() {
     userName: "",
     login: "",
     password: "",
+    // games:[],
   });
   console.log(form);
 

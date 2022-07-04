@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { NavBar } from "../../components/NavBar";
-// import { Toaster, toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 export function AuthPage() {
   const navigate = useNavigate();
@@ -12,8 +12,15 @@ export function AuthPage() {
     userName: "",
     login: "",
     password: "",
+    games: [],
   });
   console.log(form);
+  const [user, setUser] = useState({
+    userName: "",
+    login: "",
+    password: "",
+    games: [],
+  });
 
   useEffect(() => {
     async function fetchEdit() {
@@ -22,7 +29,7 @@ export function AuthPage() {
           `https://ironrest.herokuapp.com/react-crud-project2/${_id}`
         );
 
-        setForm({ ...response.data });
+        setUser({ ...response.data });
       } catch (err) {
         console.log(err);
       }
@@ -37,49 +44,35 @@ export function AuthPage() {
     console.log(form);
   }
 
-  function handleAuth(e) {
-    e.preventDefault();
-    if (e.target.value === [form.password]) {
-      return async function handleSubmit(e) {
-        e.preventDefault();
-        try {
-          const clone = { ...form };
-          delete clone._id;
-          await axios.put(
-            `https://ironrest.herokuapp.com/react-crud-project2/${_id}`,
-            clone
-          );
-
-          navigate("/api-page");
-        } catch (err) {
-          console.log(err);
-        }
-      };
+  function handleAuth(senha) {
+    console.log(senha);
+    console.log(form.password);
+    if (senha === user.password) {
+      navigate(`/api-page/${_id}`);
     } else {
-      return null;
+      toast.error("senha invalida");
     }
   }
 
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <NavBar />
       <h3>Edite seu Perfil</h3>
       <div className="form-row align-items-center">
-        <form style={{ width: "100px", margin: "10px" }} onSubmit={handleAuth}>
+        <form style={{ width: "100px", margin: "10px" }}>
           <label htmlFor="Nome-input">Seu Nome:</label>
           <input
             type="string"
             name="userName"
-            onChange={handleChange}
-            value={form.userName}
+            value={user.userName}
             id="Nome-input"
           />
           <label htmlFor="user-input">Login:</label>
           <input
             type="string"
             name="login"
-            onChange={handleChange}
-            value={form.login}
+            value={user.login}
             id="login-input"
           />
           <br />
@@ -94,11 +87,13 @@ export function AuthPage() {
 
           <button
             className="btn btn-primary d-flex flex-column"
-            onClick={handleAuth}
-            type="submit"
+            onClick={() => {
+              handleAuth(form.password);
+            }}
+            type="button"
             style={{ margin: "10px" }}
           >
-            Editar
+            Logar
           </button>
         </form>
       </div>
