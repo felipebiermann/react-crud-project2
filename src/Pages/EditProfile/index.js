@@ -1,15 +1,34 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { NavBar } from "../../components/NavBar";
 // import { Toaster, toast } from "react-hot-toast";
 
 export function EditProfile() {
   const navigate = useNavigate();
+
+  const { _id } = useParams();
   const [form, setForm] = useState({
-    user: "",
+    userName: "",
+    login: "",
     password: "",
   });
   console.log(form);
+
+  useEffect(() => {
+    async function fetchEdit() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/react-crud-project2/${_id}`
+        );
+
+        setForm({ ...response.data });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchEdit();
+  }, []);
 
   function handleChange(e) {
     e.preventDefault();
@@ -21,9 +40,11 @@ export function EditProfile() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post(
-        "https://ironrest.herokuapp.com/react-crud-project2",
-        form
+      const clone = { ...form };
+      delete clone._id;
+      await axios.put(
+        `https://ironrest.herokuapp.com/react-crud-project2/${_id}`,
+        clone
       );
 
       navigate("/");
@@ -34,15 +55,25 @@ export function EditProfile() {
 
   return (
     <>
-      <div>
+      <NavBar />
+      <h3>Edite seu Perfil</h3>
+      <div className="form-row align-items-center">
         <form onSubmit={handleSubmit}>
+          <label htmlFor="Nome-input">Seu Nome:</label>
+          <input
+            type="string"
+            name="userName"
+            onChange={handleChange}
+            value={form.userName}
+            id="Nome-input"
+          />
           <label htmlFor="user-input">Login:</label>
           <input
             type="string"
-            name="user"
+            name="login"
             onChange={handleChange}
-            value={form.user}
-            id="user-input"
+            value={form.login}
+            id="login-input"
           />
           <br />
           <label htmlFor="password-input">Senha:</label>
@@ -60,7 +91,7 @@ export function EditProfile() {
             type="submit"
             style={{ margin: "10px" }}
           >
-            Entrar
+            Editar
           </button>
         </form>
       </div>

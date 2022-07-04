@@ -37,8 +37,12 @@ export function LoginPage() {
   return (
     <>
       <NavBar />
+
       <div className="form-row align-items-center">
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ width: "100px", margin: "10px" }}
+        >
           <label htmlFor="Nome-input">Seu Nome:</label>
           <input
             type="string"
@@ -47,23 +51,30 @@ export function LoginPage() {
             value={form.userName}
             id="Nome-input"
           />
-          <label htmlFor="user-input">Login:</label>
-          <input
-            type="string"
-            name="login"
-            onChange={handleChange}
-            value={form.login}
-            id="login-input"
-          />
-          <br />
-          <label htmlFor="password-input">Senha:</label>
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            value={form.password}
-            id="password-input"
-          />
+
+          <div>
+            <label htmlFor="user-input">Login:</label>
+            <input
+              type="string"
+              name="login"
+              onChange={handleChange}
+              value={form.login}
+              id="login-input"
+              style={{ width: "100px" }}
+            />
+            <div>
+              <br />
+              <label htmlFor="password-input">Senha:</label>
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                value={form.password}
+                id="password-input"
+                style={{ width: "100px" }}
+              />
+            </div>
+          </div>
 
           <button
             className="btn btn-primary d-flex flex-column"
@@ -71,7 +82,7 @@ export function LoginPage() {
             type="submit"
             style={{ margin: "10px" }}
           >
-            Criar/Entrar
+            Criar
           </button>
         </form>
       </div>

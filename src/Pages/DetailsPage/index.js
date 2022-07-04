@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar";
 
-export function DetailsPage() {
+export function DetailsPage(props) {
   const { _id } = useParams();
+
   const [loginPage, setLoginPage] = useState([]);
   const navigate = useNavigate();
   console.log(loginPage);
-
+  // const numbPass = props.password.slice(-1);
   useEffect(() => {
     async function fetchLoginPage() {
       try {

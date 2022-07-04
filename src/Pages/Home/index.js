@@ -57,7 +57,7 @@ export function Home() {
                 borderStyle: "solid",
               }}
             >
-              Login
+              CRIAR CONTA
             </Link>
           </li>
         </ul>
