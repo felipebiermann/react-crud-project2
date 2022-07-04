@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export function Cards(props) {
+  console.log(props);
   return (
     <div className="row">
       <div className="col-sm-6">

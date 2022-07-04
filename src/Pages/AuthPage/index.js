@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { NavBar } from "../../components/NavBar";
 // import { Toaster, toast } from "react-hot-toast";
 
-export function EditProfile() {
+export function AuthPage() {
   const navigate = useNavigate();
 
   const { _id } = useParams();
@@ -37,19 +37,26 @@ export function EditProfile() {
     console.log(form);
   }
 
-  async function handleSubmit(e) {
+  function handleAuth(e) {
     e.preventDefault();
-    try {
-      const clone = { ...form };
-      delete clone._id;
-      await axios.put(
-        `https://ironrest.herokuapp.com/react-crud-project2/${_id}`,
-        clone
-      );
+    if (e.target.value === [form.password]) {
+      return async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+          const clone = { ...form };
+          delete clone._id;
+          await axios.put(
+            `https://ironrest.herokuapp.com/react-crud-project2/${_id}`,
+            clone
+          );
 
-      navigate("/");
-    } catch (err) {
-      console.log(err);
+          navigate("/api-page");
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    } else {
+      return null;
     }
   }
 
@@ -58,10 +65,7 @@ export function EditProfile() {
       <NavBar />
       <h3>Edite seu Perfil</h3>
       <div className="form-row align-items-center">
-        <form
-          style={{ width: "100px", margin: "10px" }}
-          onSubmit={handleSubmit}
-        >
+        <form style={{ width: "100px", margin: "10px" }} onSubmit={handleAuth}>
           <label htmlFor="Nome-input">Seu Nome:</label>
           <input
             type="string"
@@ -90,7 +94,7 @@ export function EditProfile() {
 
           <button
             className="btn btn-primary d-flex flex-column"
-            onClick={handleSubmit}
+            onClick={handleAuth}
             type="submit"
             style={{ margin: "10px" }}
           >

@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar";
 
 export function DetailsPage(props) {
+  const numbPass = [props.password].slice(-4);
+  console.log(numbPass);
   const { _id } = useParams();
 
   const [loginPage, setLoginPage] = useState([]);
   const navigate = useNavigate();
   console.log(loginPage);
-  // const numbPass = props.password.slice(-1);
+
   useEffect(() => {
     async function fetchLoginPage() {
       try {
@@ -44,7 +46,7 @@ export function DetailsPage(props) {
       <h4>Suas informações:</h4>
       <ul>
         <li>Login: {loginPage.login}</li>
-        <li>Password: {loginPage.password}</li>
+        <li>Password: *******</li>
       </ul>
       {
         <Link to={`/edit-profile/${_id}`} className="btn btn-primary">

@@ -43,7 +43,7 @@ export function Home() {
               float: "left",
               listStyleType: "none",
               textAlign: "center",
-              width: "33%",
+              width: "37%",
             }}
           >
             <Link
@@ -68,11 +68,11 @@ export function Home() {
       >
         <h1
           style={{
-            margin: "0px",
             fontFamily: "Blippo, fantasy",
             letterSpacing: "2px",
             marginRight: "10px",
-            marginLeft: "560px",
+            marginLeft: "570px",
+
             color: "white",
             textAlign: "center",
           }}
