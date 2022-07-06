@@ -23,9 +23,7 @@ export function Home() {
         <nav
           className="navbar navbar-dark bg-dark"
           style={{
-            color: "white",
-
-            padding: "0px 0 14px 0",
+            padding: "0px 14px",
           }}
         >
           <ul className="nav-bar-ul justify-content-end">
@@ -36,7 +34,13 @@ export function Home() {
               }}
             >
               <Link to="/login-page">
-                <button className="btn btn-outline-success ">
+                <button
+                  className="btn btn-outline-success"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Toque para criar sua conta."
+                >
+                  {" "}
                   CRIAR CONTA
                 </button>
               </Link>
@@ -51,8 +55,8 @@ export function Home() {
             style={{
               fontFamily: "Blippo, fantasy",
               letterSpacing: "2px",
-              marginRight: "10px",
-              marginLeft: "570px",
+              marginRight: "8px",
+              marginLeft: "613px",
               text: "center",
               color: "white",
               textAlign: "center",

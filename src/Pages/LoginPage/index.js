@@ -1,18 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { NavBar } from "../../components/NavBar";
+import { useParams } from "react-router-dom";
 // import { Toaster, toast } from "react-hot-toast";
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const { _id } = useParams();
   const [form, setForm] = useState({
     userName: "",
     login: "",
     password: "",
-    // games:[],
+    games: [],
   });
   console.log(form);
+  const [user, setUser] = useState({
+    userName: "",
+    login: "",
+    password: "",
+    games: [],
+  });
+
+  useEffect(() => {
+    async function fetchEdit() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/react-crud-project2/${_id}`
+        );
+        console.log(response);
+        setUser({ ...response.data });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchEdit();
+  }, []);
 
   function handleChange(e) {
     e.preventDefault();

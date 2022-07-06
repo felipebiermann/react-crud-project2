@@ -48,9 +48,14 @@ export function AuthPage() {
     console.log(senha);
     console.log(form.password);
     if (senha === user.password) {
-      navigate(`/api-page/${_id}`);
+      navigate(`/api-page/${user._id}`);
+      toast("Acesso Liberado", {
+        icon: "👏",
+      });
     } else {
-      toast.error("senha invalida");
+      toast("Senha Inválida", {
+        icon: "😕",
+      });
     }
   }
 
@@ -58,17 +63,12 @@ export function AuthPage() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <NavBar />
-      <h3>Edite seu Perfil</h3>
+      <h3 style={{ color: "white" }}>Entre na sua Conta</h3>
       <div className="form-row align-items-center">
         <form style={{ width: "100px", margin: "10px" }}>
-          <label htmlFor="Nome-input">Seu Nome:</label>
-          <input
-            type="string"
-            name="userName"
-            value={user.userName}
-            id="Nome-input"
-          />
-          <label htmlFor="user-input">Login:</label>
+          <label htmlFor="user-input" style={{ color: "white" }}>
+            Login:
+          </label>
           <input
             type="string"
             name="login"
@@ -76,7 +76,9 @@ export function AuthPage() {
             id="login-input"
           />
           <br />
-          <label htmlFor="password-input">Senha:</label>
+          <label htmlFor="password-input" style={{ color: "white" }}>
+            Senha:
+          </label>
           <input
             type="password"
             name="password"

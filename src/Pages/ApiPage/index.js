@@ -1,13 +1,99 @@
-import { useEffect, useState } from "react";
+import { cloneElement, useEffect, useState } from "react";
 import axios from "axios";
 import { GameCards } from "../../components/GameCards";
 import { NavBar } from "../../components/NavBar";
+import { Toaster, toast } from "react-hot-toast";
+import { useParams } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 export function ApiPage() {
   const [apiPage, setApiPage] = useState([]);
-  const [search, setSearch] = useState("");
-  console.log(apiPage);
+  // const [search, setSearch] = useState("");
+  // console.log(apiPage);
+  const { _id } = useParams();
+  const [selectedItem, setSelectedItem] = useState({});
+  console.log("esse é o selectedItem", selectedItem);
+  // const [game, setGame] = useState([]);
+  const [user, setUser] = useState({
+    userName: "",
+    login: "",
+    password: "",
+    games: [],
+  });
+
+  console.log("esse é o user", user);
+
+  //Fazer um GET no ID que entrar na pagina "useEffect".
+  //Fazer com que o obj do GAME clicado, entre no user.games, fazer um spread.
+  //botão adicionar
+
+  useEffect(() => {
+    async function fetchId() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/react-crud-project2/${_id}`
+        );
+        console.log("esse é o ID", _id);
+        console.log("essa é a resposta", response.data);
+        setUser({ ...response.data });
+        // setGame({ ...response.data.games });
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchId();
+  }, []);
+
+  function handleClick(titulo) {
+    // console.log(handleClick);
+    //o handleClick serve para enviar as informaçoes para a API. No setUser definimos o usuario e suas propriedades.
+    //o problema é que no inicio, "games" é vazio. E precisamos adicionar o titulo do jogo referente ao card mapeado.
+    //pra isso precisamos enviar os dados do card para a função. Como fazer isso?
+
+    console.log("esse é o selectedItem", selectedItem);
+    //selectedItem foi mapeado pelo cartão e o botão clicado.
+
+    setUser({ ...user, games: [...user.games, titulo.title] });
+    handleSubmit();
+
+    toast.success("Jogo Adicionado à sua Lista.", {
+      style: {
+        border: "1px solid #713200",
+        padding: "16px",
+        color: "#713200",
+      },
+      iconTheme: {
+        primary: "#713200",
+        secondary: "#FFFAEE",
+      },
+    });
+    // try{
+    //       await axios.put(`https://ironrest.herokuapp.com/react-crud-project2/${_id}`)
+    // }catch (error){
+
+    // }
+  }
+
+  async function handleSubmit() {
+    // console.log(handleSubmit);
+    // e.preventDefault();
+
+    try {
+      const clone = { ...user };
+      delete clone._id;
+      await axios.put(
+        `https://ironrest.herokuapp.com/react-crud-project2/${_id}`,
+        clone
+      );
+      console.log(_id);
+      console.log(clone);
+    } catch (error) {
+      console.log(error);
+      console.log(_id, user);
+    }
+  }
+  handleSubmit();
 
   useEffect(() => {
     function fetchApiPage() {
@@ -36,8 +122,10 @@ export function ApiPage() {
 
   return (
     <>
+      <Toaster />
       <div style={{ backgroundColor: "black" }}>
         <NavBar />
+
         <h1
           style={{ color: "white", textAlign: "center", marginBottom: "100px" }}
         >
@@ -54,12 +142,37 @@ export function ApiPage() {
           }}
         >
           {apiPage.map((currentElement) => {
+            // console.log(currentElement);
             return (
               <div>
                 <GameCards
                   title={currentElement.title}
                   id={currentElement.id}
+                  // Estamos mapeando o objeto e suas propriedades.
+                  // setSelectedItem={setSelectedItem}
+
+                  //currentElement é o JOGO
+                  // handleSubmit={handleSubmit}
+                  // funcaoPassadaPorProps={handleClick}
                 />
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  // onClick={handleClick}
+
+                  onClick={() => {
+                    // setSelectedItem(currentElement);
+                    handleClick(currentElement);
+                    //Ação de enviar os dados mapeados para a variavel selectedItem
+                  }}
+                  style={{
+                    textAlign: "center",
+                    marginLeft: "120px",
+                    marginBottom: "40px",
+                  }}
+                >
+                  Adicionar Jogo!
+                </button>
               </div>
             );
           })}
