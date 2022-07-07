@@ -147,7 +147,7 @@ export function ApiPage() {
               onClick={handleSubmit}
               className="btn btn-success  "
               type="button"
-              style={{ marginLeft: "700px", marginBottom: "100px" }}
+              style={{ marginLeft: "630px", marginBottom: "100px" }}
             >
               Submit
             </button>
