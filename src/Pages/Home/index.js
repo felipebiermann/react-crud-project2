@@ -28,7 +28,7 @@ export function Home() {
             <p className="first">Here, you can find your Favorite Games.</p>
           </div>
           <div className="banner-btn">
-            <a href="http://localhost:3000/login-page">
+            <a href="https://game-academy.netlify.app/login-page">
               <span></span>
               <b>Create Account</b>
             </a>
