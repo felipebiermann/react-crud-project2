@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 export function ApiPage() {
   const [apiPage, setApiPage] = useState([]);
-  // const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
   // console.log(apiPage);
   const { _id } = useParams();
 
@@ -43,6 +43,10 @@ export function ApiPage() {
     }
     fetchId();
   }, [_id]);
+
+  function handleSearch(e) {
+    setSearch(e.target.value);
+  }
 
   function handleClick(titulo) {
     // console.log(handleClick);
@@ -84,6 +88,7 @@ export function ApiPage() {
       console.log(error);
       // console.log(_id, user);
     }
+    toast.success("The list is saved in your profile!");
   }
 
   useEffect(() => {
@@ -127,6 +132,35 @@ export function ApiPage() {
           >
             Favorite Games List!
           </h1>
+          <h3
+            style={{
+              color: "white",
+              textAlign: "center",
+              marginBottom: "50px",
+              marginTop: "-50px",
+            }}
+          >
+            Choose your game and click Submit.
+          </h3>
+          <div>
+            <button
+              onClick={handleSubmit}
+              className="btn btn-success  "
+              type="button"
+              style={{ marginLeft: "700px", marginBottom: "100px" }}
+            >
+              Submit
+            </button>
+          </div>
+          <div className="d-flex justify-content-center ">
+            <input
+              className="placeholder-wave col-4"
+              name="search"
+              placeholder="Search your game
+              "
+              onChange={handleSearch}
+            />
+          </div>
           <div
             style={{
               display: "flex",
@@ -137,48 +171,47 @@ export function ApiPage() {
               justifyContent: "space-between",
             }}
           >
-            <button
-              onClick={handleSubmit}
-              className="btn btn-success"
-              type="button"
-            >
-              ENVIAR
-            </button>
-            {apiPage.map((currentElement) => {
-              return (
-                <div key={currentElement.id}>
-                  <GameCards
-                    title={currentElement.title}
-                    id={currentElement.id}
-                    // Estamos mapeando o objeto e suas propriedades.
-                    // setSelectedItem={setSelectedItem}
+            {apiPage
+              .filter((currentElement) => {
+                return currentElement.title
+                  .toLowerCase()
+                  .includes(search.toLowerCase());
+              })
+              .map((currentElement) => {
+                return (
+                  <div key={currentElement.id}>
+                    <GameCards
+                      title={currentElement.title}
+                      id={currentElement.id}
+                      // Estamos mapeando o objeto e suas propriedades.
+                      // setSelectedItem={setSelectedItem}
 
-                    //currentElement é o JOGO
-                    // handleSubmit={handleSubmit}
-                    // funcaoPassadaPorProps={handleClick}
-                  />
-                  <button
-                    className="btn btn-success"
-                    type="button"
-                    // onClick={handleClick}
+                      //currentElement é o JOGO
+                      // handleSubmit={handleSubmit}
+                      // funcaoPassadaPorProps={handleClick}
+                    />
+                    <button
+                      className="btn btn-success"
+                      type="button"
+                      // onClick={handleClick}
 
-                    onClick={() => {
-                      // setSelectedItem(currentElement);
-                      handleClick(currentElement);
+                      onClick={() => {
+                        // setSelectedItem(currentElement);
+                        handleClick(currentElement);
 
-                      //Ação de enviar os dados mapeados para a variavel selectedItem
-                    }}
-                    style={{
-                      textAlign: "center",
-                      marginLeft: "120px",
-                      marginBottom: "50px",
-                    }}
-                  >
-                    Adicionar Jogo!
-                  </button>
-                </div>
-              );
-            })}
+                        //Ação de enviar os dados mapeados para a variavel selectedItem
+                      }}
+                      style={{
+                        textAlign: "center",
+                        marginLeft: "120px",
+                        marginBottom: "50px",
+                      }}
+                    >
+                      Adicionar Jogo!
+                    </button>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </section>
