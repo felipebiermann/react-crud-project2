@@ -67,7 +67,9 @@ export function LoginPage() {
           onSubmit={handleSubmit}
           style={{ width: "100px", margin: "10px" }}
         >
-          <label htmlFor="Nome-input">Seu Nome:</label>
+          <label htmlFor="Nome-input" style={{ color: "white" }}>
+            Seu Nome:
+          </label>
           <input
             type="string"
             name="userName"
@@ -77,7 +79,9 @@ export function LoginPage() {
           />
 
           <div>
-            <label htmlFor="user-input">Login:</label>
+            <label htmlFor="user-input" style={{ color: "white" }}>
+              Login:
+            </label>
             <input
               type="string"
               name="login"
@@ -88,7 +92,9 @@ export function LoginPage() {
             />
             <div>
               <br />
-              <label htmlFor="password-input">Senha:</label>
+              <label htmlFor="password-input" style={{ color: "white" }}>
+                Senha:
+              </label>
               <input
                 type="password"
                 name="password"
@@ -101,7 +107,7 @@ export function LoginPage() {
           </div>
 
           <button
-            className="btn btn-primary d-flex flex-column"
+            className="btn btn-primary d-flex flex-column "
             onClick={handleSubmit}
             type="submit"
             style={{ margin: "10px" }}

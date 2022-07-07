@@ -19,6 +19,7 @@ function App() {
         <Route path="/edit-profile/:_id" element={<EditProfile />} />
         <Route path="/api-page/:_id" element={<ApiPage />} />
         <Route path="/auth-page/:_id" element={<AuthPage />} />
+
         <Route path="*" element={<NotFound />} />
 
         {/* <Route path="/api-page" element={<ApiPage />} /> */}

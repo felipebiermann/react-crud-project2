@@ -11,8 +11,7 @@ export function ApiPage() {
   // const [search, setSearch] = useState("");
   // console.log(apiPage);
   const { _id } = useParams();
-  const [selectedItem, setSelectedItem] = useState({});
-  console.log("esse é o selectedItem", selectedItem);
+
   // const [game, setGame] = useState([]);
   const [user, setUser] = useState({
     userName: "",
@@ -51,7 +50,6 @@ export function ApiPage() {
     //o problema é que no inicio, "games" é vazio. E precisamos adicionar o titulo do jogo referente ao card mapeado.
     //pra isso precisamos enviar os dados do card para a função. Como fazer isso?
 
-    console.log("esse é o selectedItem", selectedItem);
     //selectedItem foi mapeado pelo cartão e o botão clicado.
 
     setUser({ ...user, games: [...user.games, titulo.title] });
@@ -68,11 +66,6 @@ export function ApiPage() {
         secondary: "#FFFAEE",
       },
     });
-    // try{
-    //       await axios.put(`https://ironrest.herokuapp.com/react-crud-project2/${_id}`)
-    // }catch (error){
-
-    // }
   }
 
   async function handleSubmit() {
@@ -87,13 +80,12 @@ export function ApiPage() {
         clone
       );
       console.log(_id);
-      console.log(clone);
+      // console.log(clone);
     } catch (error) {
       console.log(error);
       console.log(_id, user);
     }
   }
-  handleSubmit();
 
   useEffect(() => {
     function fetchApiPage() {
