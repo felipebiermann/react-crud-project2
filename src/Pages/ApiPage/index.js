@@ -126,7 +126,7 @@ export function ApiPage() {
               marginBottom: "100px",
             }}
           >
-            Hora de Criar sua Lista!
+            Favorite Games List!
           </h1>
           <div
             style={{

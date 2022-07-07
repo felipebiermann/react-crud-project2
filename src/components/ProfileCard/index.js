@@ -1,4 +1,5 @@
 export function ProfileCard(props) {
+  console.log(props);
   return (
     <>
       <div className="card text-black flex-column mb-4 p-1 d-flex text-center">

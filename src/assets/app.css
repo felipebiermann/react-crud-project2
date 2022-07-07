@@ -1,7 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(rgb(5, 4, 4), #009688);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 .card-columns {
   column-count: 4;
@@ -12,21 +18,34 @@
     url(https://br.depositphotos.com/stock-photos/games.html);
   background-size: cover;
   background-position: center;
-  height: 200vh;
 }
 #banner2 {
-  background: linear-gradient(rgba(2, 86, 165, 0.952), #009688),
+  background: linear-gradient(rgba(22, 31, 39, 0.952), #009688),
     url(https://br.depositphotos.com/stock-photos/games.html);
   background-size: cover;
   background-position: center;
-  height: 1700vh;
+  /* height: 100vh; */
 }
 
 .logo {
-  width: 180px;
+  max-width: 180px;
   position: absolute;
   top: 4%;
   left: 10%;
+  transform: translateY(0px);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .banner-text {
@@ -34,9 +53,13 @@
   color: #fff;
   padding-top: 180px;
 }
+h1 {
+  font-family: "Black Ops One", cursive;
+}
 
 .text {
   color: transparent;
+  font-family: "Black Ops One", cursive;
   font-size: 10vw;
   display: inline-block;
   border-radius: 3px;
@@ -59,8 +82,7 @@
 }
 
 .banner-text h1 {
-  font-size: 130px;
-  font-family: "Kaushan Script";
+  font-size: 110px;
 }
 
 .banner-text p {

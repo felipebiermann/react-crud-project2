@@ -45,7 +45,7 @@ export function LoginPage() {
   }
 
   async function handleSubmit(e) {
-    toast("Conta Criada", {
+    toast("Account Created", {
       icon: "😎",
     });
     e.preventDefault();
@@ -63,7 +63,7 @@ export function LoginPage() {
 
   return (
     <>
-      <div className="form-row align-items-center" id="banner">
+      <div className="form-row align-items-center mx-auto" id="banner">
         <Toaster position="top-center" reverseOrder={false} />
         <NavBar2 />
         <form

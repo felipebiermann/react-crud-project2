@@ -24,9 +24,9 @@ export function Home() {
         <img src={GameAcademy} className="logo" />
 
         <div className="banner-text">
-          <h1 className="text">Game Academy</h1>
+          <h1 className="text">Make Your Game List.</h1>
           <div className="animation">
-            <p className="first">Make Your Game List.</p>
+            <p className="first">Here, you can find your Favorite Games.</p>
           </div>
           <div className="banner-btn">
             <a href="http://localhost:3000/login-page">

@@ -13,7 +13,7 @@ export function DetailsPage(props) {
   // const [games, setGames] = useState([]);
   const [loginPage, setLoginPage] = useState([]);
   const navigate = useNavigate();
-  // console.log([...loginPage.games]);
+  console.log(loginPage);
 
   useEffect(() => {
     async function fetchLoginPage() {
@@ -46,15 +46,13 @@ export function DetailsPage(props) {
     <>
       <section id="banner">
         <NavBar />
-        <h1 style={{ color: "white" }}>
-          Seja bem vindo, {loginPage.userName}!
-        </h1>
-        <h4 style={{ color: "white" }}>Suas informações:</h4>
+        <h1 style={{ color: "white" }}>Welcome, {loginPage.userName}!</h1>
+        <h4 style={{ color: "white" }}>Your Account:</h4>
         <ul>
           <li style={{ color: "white" }}>Login: {loginPage.login}</li>
           <li style={{ color: "white" }}>Password: *******</li>
         </ul>
-        <h4 style={{ color: "white" }}>Jogos Favoritos:</h4>{" "}
+        <h4 style={{ color: "white" }}>Favorites Games:</h4>{" "}
         {loginPage.map((current) => {
           return (
             <ProfileCard
@@ -67,11 +65,11 @@ export function DetailsPage(props) {
         })}
         {
           <Link to={`/edit-profile/${_id}`} className="btn btn-primary">
-            Editar Perfil
+            Edit Profile
           </Link>
         }
         <button className="btn btn-danger" onClick={handleDelete}>
-          Deletar Perfil
+          Delet Profile
         </button>
       </section>
     </>
