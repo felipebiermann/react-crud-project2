@@ -44,32 +44,36 @@ export function DetailsPage(props) {
 
   return (
     <>
-      <NavBar />
-      <h1 style={{ color: "white" }}>Seja bem vindo, {loginPage.userName}!</h1>
-      <h4 style={{ color: "white" }}>Suas informações:</h4>
-      <ul>
-        <li style={{ color: "white" }}>Login: {loginPage.login}</li>
-        <li style={{ color: "white" }}>Password: *******</li>
-      </ul>
-      <h4 style={{ color: "white" }}>Jogos Favoritos:</h4>{" "}
-      {loginPage.map((current) => {
-        return (
-          <ProfileCard
-            style={{ marginLeft: "500px" }}
-            userName={current.userName}
-            id={current._id}
-            games={current.data}
-          />
-        );
-      })}
-      {
-        <Link to={`/edit-profile/${_id}`} className="btn btn-primary">
-          Editar Perfil
-        </Link>
-      }
-      <button className="btn btn-danger" onClick={handleDelete}>
-        Deletar Perfil
-      </button>
+      <section id="banner">
+        <NavBar />
+        <h1 style={{ color: "white" }}>
+          Seja bem vindo, {loginPage.userName}!
+        </h1>
+        <h4 style={{ color: "white" }}>Suas informações:</h4>
+        <ul>
+          <li style={{ color: "white" }}>Login: {loginPage.login}</li>
+          <li style={{ color: "white" }}>Password: *******</li>
+        </ul>
+        <h4 style={{ color: "white" }}>Jogos Favoritos:</h4>{" "}
+        {loginPage.map((current) => {
+          return (
+            <ProfileCard
+              style={{ marginLeft: "500px" }}
+              userName={current.userName}
+              id={current._id}
+              games={current.data}
+            />
+          );
+        })}
+        {
+          <Link to={`/edit-profile/${_id}`} className="btn btn-primary">
+            Editar Perfil
+          </Link>
+        }
+        <button className="btn btn-danger" onClick={handleDelete}>
+          Deletar Perfil
+        </button>
+      </section>
     </>
   );
 }

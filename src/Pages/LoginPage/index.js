@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { NavBar } from "../../components/NavBar";
+import { NavBar2 } from "../../components/NavBar2";
 import { useParams } from "react-router-dom";
-// import { Toaster, toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -45,6 +45,9 @@ export function LoginPage() {
   }
 
   async function handleSubmit(e) {
+    toast("Conta Criada", {
+      icon: "😎",
+    });
     e.preventDefault();
     try {
       await axios.post(
@@ -60,15 +63,15 @@ export function LoginPage() {
 
   return (
     <>
-      <NavBar />
-
-      <div className="form-row align-items-center">
+      <div className="form-row align-items-center" id="banner">
+        <Toaster position="top-center" reverseOrder={false} />
+        <NavBar2 />
         <form
           onSubmit={handleSubmit}
           style={{ width: "100px", margin: "10px" }}
         >
           <label htmlFor="Nome-input" style={{ color: "white" }}>
-            Seu Nome:
+            Your Name:
           </label>
           <input
             type="string"
@@ -93,7 +96,7 @@ export function LoginPage() {
             <div>
               <br />
               <label htmlFor="password-input" style={{ color: "white" }}>
-                Senha:
+                Password:
               </label>
               <input
                 type="password"
@@ -112,7 +115,7 @@ export function LoginPage() {
             type="submit"
             style={{ margin: "10px" }}
           >
-            Criar
+            Create
           </button>
         </form>
       </div>

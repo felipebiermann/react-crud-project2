@@ -55,49 +55,57 @@ export function EditProfile() {
 
   return (
     <>
-      <NavBar />
-      <h3>Edite seu Perfil</h3>
-      <div className="form-row align-items-center">
-        <form
-          style={{ width: "100px", margin: "10px" }}
-          onSubmit={handleSubmit}
-        >
-          <label htmlFor="Nome-input">Seu Nome:</label>
-          <input
-            type="string"
-            name="userName"
-            onChange={handleChange}
-            value={form.userName}
-            id="Nome-input"
-          />
-          <label htmlFor="user-input">Login:</label>
-          <input
-            type="string"
-            name="login"
-            onChange={handleChange}
-            value={form.login}
-            id="login-input"
-          />
-          <br />
-          <label htmlFor="password-input">Senha:</label>
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            value={form.password}
-            id="password-input"
-          />
-
-          <button
-            className="btn btn-primary d-flex flex-column"
-            onClick={handleSubmit}
-            type="submit"
-            style={{ margin: "10px" }}
+      <section id="banner">
+        <NavBar />
+        <h3 style={{ color: "white" }}>Edite seu Perfil</h3>
+        <div className="form-row align-items-center">
+          <form
+            style={{ width: "100px", margin: "10px" }}
+            onSubmit={handleSubmit}
           >
-            Editar
-          </button>
-        </form>
-      </div>
+            <label htmlFor="Nome-input" style={{ color: "white" }}>
+              Seu Nome:
+            </label>
+            <input
+              type="string"
+              name="userName"
+              onChange={handleChange}
+              value={form.userName}
+              id="Nome-input"
+            />
+            <label htmlFor="user-input" style={{ color: "white" }}>
+              Login:
+            </label>
+            <input
+              type="string"
+              name="login"
+              onChange={handleChange}
+              value={form.login}
+              id="login-input"
+            />
+            <br />
+            <label htmlFor="password-input" style={{ color: "white" }}>
+              Senha:
+            </label>
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              value={form.password}
+              id="password-input"
+            />
+
+            <button
+              className="btn btn-primary d-flex flex-column"
+              onClick={handleSubmit}
+              type="submit"
+              style={{ margin: "10px" }}
+            >
+              Editar
+            </button>
+          </form>
+        </div>
+      </section>
     </>
   );
 }

@@ -114,62 +114,68 @@ export function ApiPage() {
 
   return (
     <>
-      <Toaster />
-      <div style={{ backgroundColor: "black" }}>
-        <NavBar />
+      <section id="banner2">
+        <Toaster />
+        <div>
+          <NavBar />
 
-        <h1
-          style={{ color: "white", textAlign: "center", marginBottom: "100px" }}
-        >
-          JOGOS
-        </h1>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            margin: "50px",
+          <h1
+            style={{
+              color: "white",
+              textAlign: "center",
+              marginBottom: "100px",
+            }}
+          >
+            Hora de Criar sua Lista!
+          </h1>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              margin: "50px",
 
-            justifyContent: "space-between",
-          }}
-        >
-          {apiPage.map((currentElement) => {
-            // console.log(currentElement);
-            return (
-              <div>
-                <GameCards
-                  title={currentElement.title}
-                  id={currentElement.id}
-                  // Estamos mapeando o objeto e suas propriedades.
-                  // setSelectedItem={setSelectedItem}
+              justifyContent: "space-between",
+            }}
+          >
+            {apiPage.map((currentElement) => {
+              // console.log(currentElement);
+              return (
+                <div>
+                  <GameCards
+                    title={currentElement.title}
+                    id={currentElement.id}
+                    // Estamos mapeando o objeto e suas propriedades.
+                    // setSelectedItem={setSelectedItem}
 
-                  //currentElement é o JOGO
-                  // handleSubmit={handleSubmit}
-                  // funcaoPassadaPorProps={handleClick}
-                />
-                <button
-                  className="btn btn-primary"
-                  type="button"
-                  // onClick={handleClick}
+                    //currentElement é o JOGO
+                    // handleSubmit={handleSubmit}
+                    // funcaoPassadaPorProps={handleClick}
+                  />
+                  <button
+                    className="btn btn-success"
+                    type="button"
+                    // onClick={handleClick}
 
-                  onClick={() => {
-                    // setSelectedItem(currentElement);
-                    handleClick(currentElement);
-                    //Ação de enviar os dados mapeados para a variavel selectedItem
-                  }}
-                  style={{
-                    textAlign: "center",
-                    marginLeft: "120px",
-                    marginBottom: "40px",
-                  }}
-                >
-                  Adicionar Jogo!
-                </button>
-              </div>
-            );
-          })}
+                    onClick={() => {
+                      // setSelectedItem(currentElement);
+                      handleClick(currentElement);
+                      //Ação de enviar os dados mapeados para a variavel selectedItem
+                    }}
+                    style={{
+                      textAlign: "center",
+                      marginLeft: "120px",
+                      marginBottom: "50px",
+                    }}
+                  >
+                    Adicionar Jogo!
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
