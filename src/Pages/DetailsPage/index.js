@@ -6,14 +6,17 @@ import { NavBar } from "../../components/NavBar";
 import { ProfileCard } from "../../components/ProfileCard";
 
 export function DetailsPage(props) {
-  const numbPass = [props.password].slice(-4);
   // console.log(numbPass);
   const { _id } = useParams();
 
   // const [games, setGames] = useState([]);
-  const [loginPage, setLoginPage] = useState([]);
+  const [loginPage, setLoginPage] = useState({
+    userName: "",
+    login: "",
+    games: [],
+  });
   const navigate = useNavigate();
-  console.log(loginPage);
+  // console.log(loginPage);
 
   useEffect(() => {
     async function fetchLoginPage() {
@@ -22,14 +25,14 @@ export function DetailsPage(props) {
           `https://ironrest.herokuapp.com/react-crud-project2/${_id}`
         );
 
-        setLoginPage([...response.data.games]);
-        console.log(response.data.games);
+        setLoginPage({ ...response.data });
+        // console.log(response.data);
       } catch (err) {
         console.log(err);
       }
     }
     fetchLoginPage();
-  }, []);
+  }, [_id]);
   async function handleDelete() {
     try {
       await axios.delete(
@@ -53,14 +56,16 @@ export function DetailsPage(props) {
           <li style={{ color: "white" }}>Password: *******</li>
         </ul>
         <h4 style={{ color: "white" }}>Favorites Games:</h4>{" "}
-        {loginPage.map((current) => {
+        {loginPage.games.map((current) => {
+          console.log(current);
           return (
-            <ProfileCard
-              style={{ marginLeft: "500px" }}
-              userName={current.userName}
-              id={current._id}
-              games={current.data}
-            />
+            <div key={current.id}>
+              {" "}
+              <ProfileCard
+                style={{ marginLeft: "500px" }}
+                game={current}
+              />;{" "}
+            </div>
           );
         })}
         {

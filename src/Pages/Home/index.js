@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Cards } from "../../components/Cards";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -6,7 +5,7 @@ import GameAcademy from "../../assets/game-academy-cinza.png";
 import "../../assets/app.css";
 export function Home() {
   const [crudComunnity, setCrudComunnity] = useState([]);
-  console.log(crudComunnity);
+  // console.log(crudComunnity);
 
   useEffect(() => {
     async function fetchCrud() {
@@ -21,7 +20,7 @@ export function Home() {
   return (
     <>
       <section id="banner">
-        <img src={GameAcademy} className="logo" />
+        <img src={GameAcademy} className="logo" alt="#" />
 
         <div className="banner-text">
           <h1 className="text">Make Your Game List.</h1>
@@ -35,10 +34,16 @@ export function Home() {
             </a>
           </div>
         </div>
-
-        {crudComunnity.map((currentCrud) => {
-          return <Cards userName={currentCrud.userName} id={currentCrud._id} />;
-        })}
+        <div className="d-flex flex-wrap">
+          {crudComunnity.map((currentCrud) => {
+            return (
+              <div key={currentCrud.userName}>
+                {" "}
+                <Cards userName={currentCrud.userName} id={currentCrud._id} />
+              </div>
+            );
+          })}
+        </div>
       </section>
     </>
   );

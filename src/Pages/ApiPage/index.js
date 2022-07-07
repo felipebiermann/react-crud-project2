@@ -1,4 +1,4 @@
-import { cloneElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { GameCards } from "../../components/GameCards";
 import { NavBar } from "../../components/NavBar";
@@ -20,7 +20,7 @@ export function ApiPage() {
     games: [],
   });
 
-  console.log("esse é o user", user);
+  // console.log("esse é o user", user);
 
   //Fazer um GET no ID que entrar na pagina "useEffect".
   //Fazer com que o obj do GAME clicado, entre no user.games, fazer um spread.
@@ -32,17 +32,17 @@ export function ApiPage() {
         const response = await axios.get(
           `https://ironrest.herokuapp.com/react-crud-project2/${_id}`
         );
-        console.log("esse é o ID", _id);
-        console.log("essa é a resposta", response.data);
+        // console.log("esse é o ID", _id);
+        // console.log("essa é a resposta", response.data);
         setUser({ ...response.data });
         // setGame({ ...response.data.games });
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.log(error);
       }
     }
     fetchId();
-  }, []);
+  }, [_id]);
 
   function handleClick(titulo) {
     // console.log(handleClick);
@@ -52,10 +52,9 @@ export function ApiPage() {
 
     //selectedItem foi mapeado pelo cartão e o botão clicado.
 
-    setUser({ ...user, games: [...user.games, titulo.title] });
-    handleSubmit();
+    setUser({ ...user, games: [...user.games, titulo] });
 
-    toast.success("Jogo Adicionado à sua Lista.", {
+    toast.success("Game added to your list", {
       style: {
         border: "1px solid #713200",
         padding: "16px",
@@ -79,11 +78,11 @@ export function ApiPage() {
         `https://ironrest.herokuapp.com/react-crud-project2/${_id}`,
         clone
       );
-      console.log(_id);
+      // console.log(_id);
       // console.log(clone);
     } catch (error) {
       console.log(error);
-      console.log(_id, user);
+      // console.log(_id, user);
     }
   }
 
@@ -138,10 +137,17 @@ export function ApiPage() {
               justifyContent: "space-between",
             }}
           >
+            <button
+              onClick={handleSubmit}
+              className="btn btn-success"
+              type="button"
+            >
+              ENVIAR
+            </button>
             {apiPage.map((currentElement) => {
               // console.log(currentElement);
               return (
-                <div>
+                <div key={currentElement.id}>
                   <GameCards
                     title={currentElement.title}
                     id={currentElement.id}
@@ -160,6 +166,7 @@ export function ApiPage() {
                     onClick={() => {
                       // setSelectedItem(currentElement);
                       handleClick(currentElement);
+
                       //Ação de enviar os dados mapeados para a variavel selectedItem
                     }}
                     style={{
