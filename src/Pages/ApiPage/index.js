@@ -145,7 +145,6 @@ export function ApiPage() {
               ENVIAR
             </button>
             {apiPage.map((currentElement) => {
-              // console.log(currentElement);
               return (
                 <div key={currentElement.id}>
                   <GameCards
