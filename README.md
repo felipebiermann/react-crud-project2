@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Game Academy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Version English
 
-## Available Scripts
+Hey! My name is Felipe Biermann and I'm in week 6 of the Ironhack WEBDEV training bootcamp.
 
-In the project directory, you can run:
+Game Academy is a project specially created for the GAMER community.
 
-### `npm start`
+With the advancement and growth of the numbers of players in Brazil, the community needs a PLACE to store the GAMES that you want to start or want to play again.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are 100 Online games gathered for you to just choose the one (or those) that most catches your attention.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Very easy to use the platform, just create your account, access with Login and Password, choose the games you want on your List, click on the SEND button (to go to your Personal List) and you can also edit your Account.
 
-### `npm test`
+I invite you to create your Personalized Online Games List.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[\[LINK APP GAME ACADEMY.\]](https://game-academy.netlify.app/)
 
-### `npm run build`
+[Too learn more, see my apresentation.](https://www.canva.com/design/DAFFy-ubkPE/0U8I67wmmaZ-Q5iuCEoW-g/edit?utm_content=DAFFy-ubkPE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Versão Português
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ei! Meu nome é Felipe Biermann e estou na semana 6 do bootcamp da formação em WEBDEV da Ironhack.
+Game Academy é um projeto especialmente criado para a comunidade GAMER.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Com o avanço e o crescimento dos números de players no Brasil, a comunidade precisa de um LUGAR para armazenar os JOGOS que você quer começar ou quer voltar a jogar.
 
-### `npm run eject`
+São 100 jogos Online reunidos para você apenas escolher aquele(ou aqueles) que mais te chama a atenção.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Bem fácil de utilizar a plataforma, basta você criar a sua conta, acessar com Login e Senha, escolher os jogos que você quer na sua Lista, clicar no botão ENVIAR(para ir para a sua Lista Pessoal) e também pode editar suas informações da Conta.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Te convido para criar sua Lista Personalizada de Jogos Online.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[\[Link da plataforma GAME ACADEMY.\]](https://game-academy.netlify.app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[\[Para saber mais, veja minha apresentação.\]](https://www.canva.com/design/DAFFy-ubkPE/0U8I67wmmaZ-Q5iuCEoW-g/edit?utm_content=DAFFy-ubkPE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)

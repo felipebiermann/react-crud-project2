@@ -35,7 +35,7 @@ export function LoginPage() {
       }
     }
     fetchEdit();
-  }, []);
+  }, [_id]);
 
   function handleChange(e) {
     e.preventDefault();
@@ -66,58 +66,60 @@ export function LoginPage() {
       <div className="form-row align-items-center mx-auto" id="banner">
         <Toaster position="top-center" reverseOrder={false} />
         <NavBar2 />
-        <form
-          onSubmit={handleSubmit}
-          style={{ width: "100px", margin: "10px" }}
-        >
-          <label htmlFor="Nome-input" style={{ color: "white" }}>
-            Your Name:
-          </label>
-          <input
-            type="string"
-            name="userName"
-            onChange={handleChange}
-            value={form.userName}
-            id="Nome-input"
-          />
-
-          <div>
-            <label htmlFor="user-input" style={{ color: "white" }}>
-              Login:
+        <div className="d-flex mx-auto ">
+          <form
+            onSubmit={handleSubmit}
+            style={{ width: "100px", margin: "10px" }}
+          >
+            <label htmlFor="Nome-input" style={{ color: "white" }}>
+              Your Name:
             </label>
             <input
               type="string"
-              name="login"
+              name="userName"
               onChange={handleChange}
-              value={form.login}
-              id="login-input"
-              style={{ width: "100px" }}
+              value={form.userName}
+              id="Nome-input"
             />
+
             <div>
-              <br />
-              <label htmlFor="password-input" style={{ color: "white" }}>
-                Password:
+              <label htmlFor="user-input" style={{ color: "white" }}>
+                Login:
               </label>
               <input
-                type="password"
-                name="password"
+                type="string"
+                name="login"
                 onChange={handleChange}
-                value={form.password}
-                id="password-input"
+                value={form.login}
+                id="login-input"
                 style={{ width: "100px" }}
               />
+              <div>
+                <br />
+                <label htmlFor="password-input" style={{ color: "white" }}>
+                  Password:
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={form.password}
+                  id="password-input"
+                  style={{ width: "100px" }}
+                />
+              </div>
             </div>
-          </div>
 
-          <button
-            className="btn btn-primary d-flex flex-column "
-            onClick={handleSubmit}
-            type="submit"
-            style={{ margin: "10px" }}
-          >
-            Create
-          </button>
-        </form>
+            <button
+              className="btn btn-primary d-flex flex-column "
+              onClick={handleSubmit}
+              type="submit"
+              style={{ margin: "10px" }}
+            >
+              Create
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );

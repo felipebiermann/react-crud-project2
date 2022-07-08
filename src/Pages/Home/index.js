@@ -34,7 +34,7 @@ export function Home() {
             </a>
           </div>
         </div>
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center flex-wrap">
           {crudComunnity.map((currentCrud) => {
             return (
               <div key={currentCrud.userName}>
